@@ -32,31 +32,32 @@
                 <form class="contact2-form validate-form" id = "contactForm">
                             
                             <div class="wrap-input2 validate-input" data-validate="Name is required" style="max-width: 500px; margin: 0 auto; margin-bottom: 2rem;">
-                                <input class="input2" type="text" name="name" id = "name" style="width: inherit;background-color: white;">
-                                <span class="focus-input2" data-placeholder="NAME"></span>
+                                <input class="input2" type="text" name="name" id = "name" style="width: inherit;background-color: white; border-radius: 0 6px 0 0;">
+                                <span class="focus-input2" data-placeholder="NAME" style="text-align: left;"></span>
                             </div>
         
                             <div class="wrap-input2 validate-input" data-validate = "Valid email is required: ex@abc.xyz" style="max-width: 500px;  margin: 0 auto; margin-bottom: 2rem;">
-                                <input class="input2" type="text" name="email" id  = "email" style="width: inherit;background-color: white;">
-                                <span class="focus-input2" data-placeholder="EMAIL"></span>
+                                <input class="input2" type="text" name="email" id  = "email" style="width: inherit;background-color: white; border-radius: 0 6px 0 0;">
+                                <span class="focus-input2" data-placeholder="EMAIL" style="text-align: left;"></span>
                             </div>
         
                             <div class="wrap-input2 validate-input" data-validate = "Valid PHONE is required" style="max-width: 500px;  margin: 0 auto; margin-bottom: 2rem;">
-                                <input class="input2" type="number" name="phone" id  = "phone" style="width: inherit;background-color: white; border-radius: 6px;">
-                                <span class="focus-input2" data-placeholder="PHONE"></span>
+                                <input class="input2" type="number" name="phone" id  = "phone" style="width: inherit;background-color: white; border-radius: 0 6px 0 0;">
+                                <span class="focus-input2" data-placeholder="PHONE" style="text-align: left;"></span>
                             </div>
         
                             <div class="wrap-input2 validate-input" data-validate = "LINKEDIN is required" style="max-width: 500px;  margin: 0 auto; margin-bottom: 2rem;">
-                                <input class="input2" type="text" name="linkedin" id = "linkedin" style="width: inherit;background-color: white;">
-                                <span class="focus-input2" data-placeholder="LINKEDIN"></span>
+                                <input class="input2" type="text" name="linkedin" id = "linkedin" style="width: inherit;background-color: white; border-radius: 0 6px 0 0;">
+                                <span class="focus-input2" data-placeholder="LINKEDIN" style="text-align: left;"></span>
                             </div>
         
-                            <div class="wrap-input2 validate-input" data-validate = "Message is required" style="max-width: 500px;  margin: 0 auto; margin-bottom: 2rem;">
-                                <textarea class="input2" name="message" id  = "message" style="width: inherit;background-color: white;"></textarea>
-                                <span class="focus-input2" data-placeholder="Descirption of your past projects/experiences"></span>
+                            <div class="wrap-input2 validate-input" data-validate = "Message is required" style="max-width: 500px; margin: 0 auto; margin-bottom: 2rem;">
+                                <textarea class="input2" name="message" id  = "message" style="width: inherit;background-color: white; border-radius: 0 6px 0 0px;"></textarea>
+                                <span class="focus-input2" data-placeholder="DESCRIPTION OF PAST PROJECTS/EXPERIENCES" style="text-align: left;"></span>
                             </div>
                             <div>
                             <div class="container-contact2-form-btn" style="margin: 0 auto;">
+                            
                                 <div class="wrap-contact2-form-btn" style="border-radius: 5px; height: 50px; margin-bottom: 1rem;">
                                 <div class="contact2-form-bgbtn"></div>
                                 <input type="file" name ="file" id ="file" multiple = "" class="contact2-form-res">
@@ -92,21 +93,32 @@
 	<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-storage.js"></script>
 
 	<!-- TODO: Add SDKs for Firebase products that you want to use
-    	 https://firebase.google.com/docs/web/setup#available-libraries -->
-	<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-analytics.js"></script>
 
-	<script>
-  	
-var firebaseConfig = {
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
     apiKey: "AIzaSyAHRYywJ-ZOxjUtHDFNSS5k-rcJ04T-a6c",
     authDomain: "lavencareers.firebaseapp.com",
     databaseURL: "https://lavencareers.firebaseio.com",
     projectId: "lavencareers",
     storageBucket: "lavencareers.appspot.com",
     messagingSenderId: "149691759701",
-    appId: "1:149691759701:web:3004c3cfa20b98a08b68dc"
+    appId: "1:149691759701:web:3004c3cfa20b98a08b68dc",
+    measurementId: "G-H98D815N2R"
   };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
 
+<script>
   	// Initialize Firebase
   	firebase.initializeApp(firebaseConfig);
 	firebase.analytics();
@@ -124,7 +136,6 @@ var firebaseConfig = {
   	var email = getInputVal('email');
   	var phone = getInputVal('phone');
 	var linkedin = getInputVal('linkedin');
-  	var github = getInputVal('github');  
 	var message = getInputVal('message');
 
   	// Save message
@@ -138,14 +149,13 @@ var firebaseConfig = {
 	}
 
 	// Save message to firebase
-	function saveMessage(name, email, linkedin, github, phone, message){
+	function saveMessage(name, email, linkedin, phone, message){
   	var newMessageRef = messagesRef.push();
   	newMessageRef.set({
     	name: name,
     	email:email,
 		phone:phone,
 		linkedin: linkedin,
-		github: github,
     	message:message
  	 });
 	}
@@ -158,7 +168,7 @@ var firebaseConfig = {
 			let task = storageRef.put(fileResume);
 		}
 	});  
-    </script>
+</script>
     
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	<script src="vendor/bootstrap/js/popper.js"></script>
@@ -166,6 +176,6 @@ var firebaseConfig = {
 	<script src="vendor/select2/select2.min.js"></script>	
     <script>
             app.root.init({});
-        </script>
+    </script>
     </body>
 </html>
