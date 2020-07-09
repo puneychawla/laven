@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
     <head>
-        <title>laven - Exquisite Merch Store</title>
+        <title>laven - Careers</title>
         <meta name="description" content="Add something here"/>
         <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
         <link rel='icon' href='./assets/images/favicon.png' type='image/png'>
@@ -60,7 +60,7 @@
                             
                                 <div class="wrap-contact2-form-btn" style="border-radius: 5px; height: 50px; margin-bottom: 1rem;">
                                 <div class="contact2-form-bgbtn"></div>
-                                <input type="file" name ="file" id ="file" multiple = "" class="contact2-form-res">
+                                <input type="file"  id ="file" class="contact2-form-res">
                                 <label for="file" class="contact2-form-btn">Upload Resume (yourName.pdf)</label>
                                 </div>
                             </div>
@@ -84,19 +84,17 @@
             <footer id="footer" style="margin-top: 0rem;">
                 <p class="copyright" style="font-size: 1rem;">&copy;Laven 2020. All rights reserved.</p>
             </footer>
-        
+
+            <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
         <script src="./assets/libs.js?v=1593477047695"></script>
         <script src="./assets/app.js?v=1593477047695"></script>
         <script src="./assets/app-root.js?v=1593477047695"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-database.js"></script> 
-	<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-storage.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script> 
+	<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-storage.js"></script>
 
 	<!-- TODO: Add SDKs for Firebase products that you want to use
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
-
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
@@ -139,7 +137,7 @@
 	var message = getInputVal('message');
 
   	// Save message
-  	saveMessage(name, email, linkedin, github, phone, message);
+  	saveMessage(name, email, linkedin, phone, message);
 	document.getElementById('contactForm').reset();
 	}
 
@@ -153,10 +151,10 @@
   	var newMessageRef = messagesRef.push();
   	newMessageRef.set({
     	name: name,
-    	email:email,
-		phone:phone,
+    	email: email,
+		phone: phone,
 		linkedin: linkedin,
-    	message:message
+    	message: message
  	 });
 	}
 
@@ -175,7 +173,7 @@
 	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="vendor/select2/select2.min.js"></script>	
     <script>
-            app.root.init({});
+        app.root.init({});
     </script>
     </body>
 </html>
