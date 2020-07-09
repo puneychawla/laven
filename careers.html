@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <title>laven - Exquisite Merch Store</title>
+        <meta name="description" content="Add something here"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+        <link rel='icon' href='./assets/images/favicon.png' type='image/png'>
+        <link rel="stylesheet" href="./css/app.css"/>
+        <link rel="stylesheet" href="./css/app-root.css"/>
+        <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+        
+    </head>
+    <body id="root" class="index is-loading">
+        
+       <div class="inner" >
+                
+                    <img src='./assets/images/title-logo.png' alt='laven - the exquisite merch store' style="width: 35%; margin-top: 3rem;">
+                
+            <section id="about" class="style1" style="margin-top: 2rem !important;">
+                <header>
+                    <h2 style="color: white !important;">Careers</h2>
+                    <h2 style="font-size: 2rem !important; color: white !important;">
+                        Market Research Analyst
+                    </h2>
+                   <br>
+                <form class="contact2-form validate-form" id = "contactForm">
+                            
+                            <div class="wrap-input2 validate-input" data-validate="Name is required" style="max-width: 500px; margin: 0 auto; margin-bottom: 2rem;">
+                                <input class="input2" type="text" name="name" id = "name" style="width: inherit;background-color: white;">
+                                <span class="focus-input2" data-placeholder="NAME"></span>
+                            </div>
+        
+                            <div class="wrap-input2 validate-input" data-validate = "Valid email is required: ex@abc.xyz" style="max-width: 500px;  margin: 0 auto; margin-bottom: 2rem;">
+                                <input class="input2" type="text" name="email" id  = "email" style="width: inherit;background-color: white;">
+                                <span class="focus-input2" data-placeholder="EMAIL"></span>
+                            </div>
+        
+                            <div class="wrap-input2 validate-input" data-validate = "Valid PHONE is required" style="max-width: 500px;  margin: 0 auto; margin-bottom: 2rem;">
+                                <input class="input2" type="number" name="phone" id  = "phone" style="width: inherit;background-color: white; border-radius: 6px;">
+                                <span class="focus-input2" data-placeholder="PHONE"></span>
+                            </div>
+        
+                            <div class="wrap-input2 validate-input" data-validate = "LINKEDIN is required" style="max-width: 500px;  margin: 0 auto; margin-bottom: 2rem;">
+                                <input class="input2" type="text" name="linkedin" id = "linkedin" style="width: inherit;background-color: white;">
+                                <span class="focus-input2" data-placeholder="LINKEDIN"></span>
+                            </div>
+        
+                            <div class="wrap-input2 validate-input" data-validate = "Message is required" style="max-width: 500px;  margin: 0 auto; margin-bottom: 2rem;">
+                                <textarea class="input2" name="message" id  = "message" style="width: inherit;background-color: white;"></textarea>
+                                <span class="focus-input2" data-placeholder="Descirption of your past projects/experiences"></span>
+                            </div>
+                            <div>
+                            <div class="container-contact2-form-btn" style="margin: 0 auto;">
+                                <div class="wrap-contact2-form-btn" style="border-radius: 5px; height: 50px; margin-bottom: 1rem;">
+                                <div class="contact2-form-bgbtn"></div>
+                                <input type="file" name ="file" id ="file" multiple = "" class="contact2-form-res">
+                                <label for="file" class="contact2-form-btn">Upload Resume (yourName.pdf)</label>
+                                </div>
+                            </div>
+                            <div class="container-contact2-form-btn" style="margin: 0 auto;">
+                                <div class="wrap-contact2-form-btn">
+                                    <div class="contact2-form-bgbtn" style="height: 50px;border-radius: 5px;"></div>
+                                    <button class="contact2-form-btn" style="border-radius: 5px;" type = "submit">
+                                        Submit
+                                    </button>
+                                </div>
+                            </div>
+
+                            </div>
+                        </form>
+                </header>
+            </section>
+            </div>
+
+            <br><br>
+            <a href="./index.html" style="border-bottom: none !important;">Home</a>
+            <footer id="footer" style="margin-top: 0rem;">
+                <p class="copyright" style="font-size: 1rem;">&copy;Laven 2020. All rights reserved.</p>
+            </footer>
+        
+        <script src="./assets/libs.js?v=1593477047695"></script>
+        <script src="./assets/app.js?v=1593477047695"></script>
+        <script src="./assets/app-root.js?v=1593477047695"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-database.js"></script> 
+	<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-storage.js"></script>
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+    	 https://firebase.google.com/docs/web/setup#available-libraries -->
+	<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-analytics.js"></script>
+
+	<script>
+  	
+var firebaseConfig = {
+    apiKey: "AIzaSyAHRYywJ-ZOxjUtHDFNSS5k-rcJ04T-a6c",
+    authDomain: "lavencareers.firebaseapp.com",
+    databaseURL: "https://lavencareers.firebaseio.com",
+    projectId: "lavencareers",
+    storageBucket: "lavencareers.appspot.com",
+    messagingSenderId: "149691759701",
+    appId: "1:149691759701:web:3004c3cfa20b98a08b68dc"
+  };
+
+  	// Initialize Firebase
+  	firebase.initializeApp(firebaseConfig);
+	firebase.analytics();
+	// Reference messages collection
+	var messagesRef = firebase.database().ref('messages');
+
+	// Listen for form submit
+	document.getElementById('contactForm').addEventListener('submit', submitForm);
+
+	// Submit form
+	function submitForm(e){
+  	e.preventDefault();
+  	// Get values
+  	var name = getInputVal('name');
+  	var email = getInputVal('email');
+  	var phone = getInputVal('phone');
+	var linkedin = getInputVal('linkedin');
+  	var github = getInputVal('github');  
+	var message = getInputVal('message');
+
+  	// Save message
+  	saveMessage(name, email, linkedin, github, phone, message);
+	document.getElementById('contactForm').reset();
+	}
+
+	// Function to get get form values
+	function getInputVal(id){
+  	return document.getElementById(id).value;
+	}
+
+	// Save message to firebase
+	function saveMessage(name, email, linkedin, github, phone, message){
+  	var newMessageRef = messagesRef.push();
+  	newMessageRef.set({
+    	name: name,
+    	email:email,
+		phone:phone,
+		linkedin: linkedin,
+		github: github,
+    	message:message
+ 	 });
+	}
+
+	//For Pdf
+	file.addEventListener('change',function(e){
+		for(let i = 0;i<e.target.files.length;i++){
+			let fileResume =  e.target.files[i];
+			let storageRef = firebase.storage().ref("Resume: " + fileResume.name);
+			let task = storageRef.put(fileResume);
+		}
+	});  
+    </script>
+    
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendor/select2/select2.min.js"></script>	
+    <script>
+            app.root.init({});
+        </script>
+    </body>
+</html>
