@@ -31,16 +31,17 @@
                     <br>
                 <form class="contact2-form validate-form" id = "contactForm">
                             
-                    <div class="wrap-input2 validate-input" data-validate="Name is required" style="max-width: 500px; margin: 0 auto; margin-bottom: 2rem;">
+                    <div class="wrap-input2 validate-input" style="max-width: 500px; margin: 0 auto; margin-bottom: 2rem;">
                         
-                        <select id="job" name="job" style="width: inherit;background-color: white; border-radius: 0 6px 0 0;">
-                            <option value="MRA">Market Research Analyst</option>
-                            <option value="BD">Business Development Associate</option>
-                            <option value="UIUX">UI/UX Designer</option>
-                            <option value="front">Frontend Developer</option>
-                            <option value="back">Backend Developer</option>
+                        <select id="jobopt" name="jobopt" onchange="GetSelectedValue()" style="width: inherit; background-color: white; border-radius: 0 6px 0 0;">
+                            <option value="0">-- Select Job Title --</option>
+                            <option value="1">Market Research Analyst</option>
+                            <option value="2">Business Development Associate</option>
+                            <option value="3">UI/UX Designer</option>
+                            <option value="4">Frontend Developer</option>
+                            <option value="5">Backend Developer</option>
                         </select>
-                        <span class="focus-input2" data-placeholder="Select from the drop-down&nbsp;&nbsp;" style="text-align: right; margin-top: 0.5rem;"></span>
+                        <!--<span class="focus-input2" data-placeholder="Select from the drop-down&nbsp;&nbsp;" style="text-align: right; margin-top: 0.5rem;"></span>-->
                         <!--<input class="input2" type="text" name="name" id = "name" style="width: inherit;background-color: white; border-radius: 0 6px 0 0;">-->
                         <!--<span class="focus-input2" data-placeholder="&nbsp;&nbsp;Job Application Title" style="text-align: left;"></span>-->
                     </div>
@@ -64,7 +65,8 @@
                                 <input class="input2" type="text" name="linkedin" id = "linkedin" style="width: inherit;background-color: white; border-radius: 0 6px 0 0;">
                                 <span class="focus-input2" data-placeholder="&nbsp;&nbsp;LINKEDIN" style="text-align: left;"></span>
                             </div>
-        
+                            
+
                             <div class="wrap-input2 validate-input" data-validate = "Message is required" style="max-width: 500px; margin: 0 auto; margin-bottom: 2rem;">
                                 <textarea class="input2" name="message" id  = "message" style="width: inherit;background-color: white; border-radius: 0 6px 0 0px;"></textarea>
                                 <span class="focus-input2" data-placeholder="&nbsp;&nbsp;DESCRIPTION OF PAST PROJECTS/EXPERIENCES" style="text-align: left;"></span>
@@ -86,7 +88,9 @@
                                     </button>
                                 </div>
                             </div>
-                            
+                           <div id="joboptcode">
+
+                           </div>
                             </div>
                         </form>
                 </header>
@@ -148,62 +152,64 @@
         document.getElementById('contactForm').addEventListener('submit', submitForm);
     
         
-        function check(){
 
-        if(document.getElementById("file").files.length != 0 ){
-        
-        document.getElementById('thanks-message').innerHTML ='<br><h2 style="font-size: 2rem !important; color: white !important;" id="job-title">Thanks for applying!</h2>';
-        if(1==1){
-            document.getElementById('contactForm').reset();
-        }
 
-    } else {
-    let isResume = confirm("Do you want to proceed without uploading Resume?");
-            if(isResume == true){
-            
-        document.getElementById('thanks-message').innerHTML ='<br><h2 style="font-size: 2rem !important; color: white !important;" id="job-title">Thanks for applying!</h2>';
-        if(1==1){
-            document.getElementById('contactForm').reset();
-        }
+var jobopt = 4;
+
+    function GetSelectedValue(){
+        var z = document.getElementById('jobopt');
+        jobopt = z.options[z.selectedIndex].value;     
     }
-}
-}
- 
+
+
 
     function submitForm(e){
         e.preventDefault();
 
-
           // Get values
-        var job = getInputVal('job');
+    
         var name = getInputVal('name');
         var email = getInputVal('email');
         var phone = getInputVal('phone');
         var linkedin = getInputVal('linkedin');  
         var message = getInputVal('message');
-    
+               
+
+
+
+        //var job = getInputVal('job');
+        //var job = document.getElementById("job").value;
+        //var job = $("#job").val();
           // Save message
-        saveMessage(job, name, email, linkedin, phone, message);
+        //var z = document.getElementById("job");
+        //var job = z.options[z.selectedIndex].text;
+        //$(document).ready(function(){
+        //    $("#job").change(function(){
+        //    var job = $(this).children("option:selected").val();
+        //alert("You have selected the country - " + selectedCountry);
+        //});
+    //});
+
+
+        saveMessage(name, email, linkedin, phone, message, jobopt);
         
         }
     
-
-
         // Function to get get form values
         function getInputVal(id){
           return document.getElementById(id).value;
         }
     
         // Save message to firebase
-        function saveMessage(job, name, email, linkedin, phone, message){
+        function saveMessage(name, email, linkedin, phone, message, jobopt){
         var newMessageRef = messagesRef.push();
         newMessageRef.set({
-            job: job,
             name: name,
             email: email,
             phone: phone,
             linkedin: linkedin,
-            message:message
+            message:message,
+            jobopt: jobopt
           });
         }
     
@@ -216,12 +222,28 @@
             }
         });
 
+        function check(){
+        if(document.getElementById("file").files.length != 0 ){
+        
+        document.getElementById('thanks-message').innerHTML ='<br><h2 style="font-size: 2rem !important; color: white !important;">Thanks for applying!</h2><br><button style="border-radius: 5px;" type = "submit" onclick="clearForm()">Click here to reset the form</button>';
+        
+        } else {
+    let isResume = confirm("Do you want to proceed without uploading Resume?");
+            if(isResume == true){
+            
+            document.getElementById('thanks-message').innerHTML ='<br><h2 style="font-size: 2rem !important; color: white !important;">Thanks for applying!</h2><br><button style="border-radius: 5px;" type = "submit" onclick="clearForm()">Click here to reset the form</button>';
+        
+    }
+}
+}
+
+function clearForm(){
+    document.getElementById('contactForm').reset();
+}
+
 
 
         </script>
-    
-    
-        
-   
+
     </body>
 </html>
