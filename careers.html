@@ -29,7 +29,7 @@
                         Market Research Analyst
                     </h2>
                    <br>
-                <form class="contact2-form validate-form" id = "contactForm" onsubmit="thanks()">
+                <form class="contact2-form validate-form" id = "contactForm">
                             
                             <div class="wrap-input2 validate-input" data-validate="Name is required" style="max-width: 500px; margin: 0 auto; margin-bottom: 2rem;">
                                 <input class="input2" type="text" name="name" id = "name" style="width: inherit;background-color: white; border-radius: 0 6px 0 0;">
@@ -67,7 +67,7 @@
                             <div class="container-contact2-form-btn" style="margin: 0 auto;">
                                 <div class="wrap-contact2-form-btn">
                                     <div class="contact2-form-bgbtn" style="height: 50px;border-radius: 5px;"></div>
-                                    <button class="contact2-form-btn" style="border-radius: 5px;" type = "submit">
+                                    <button class="contact2-form-btn" style="border-radius: 5px;" type = "submit" onclick="check()">
                                         Submit
                                     </button>
                                 </div>
@@ -106,6 +106,10 @@
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
     
     <script>
+
+
+
+
       // Your web app's Firebase configuration
       var firebaseConfig = {
         apiKey: "AIzaSyAHRYywJ-ZOxjUtHDFNSS5k-rcJ04T-a6c",
@@ -121,15 +125,43 @@
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
     
+
+
+
+    
         // Reference messages collection
         var messagesRef = firebase.database().ref('messages');
     
         // Listen for form submit
         document.getElementById('contactForm').addEventListener('submit', submitForm);
     
-        // Submit form
-        function submitForm(e){
+        
+        function check(){
+
+        if(document.getElementById("file").files.length != 0 ){
+        
+        document.getElementById('thanks-message').innerHTML ='<br><h2 style="font-size: 2rem !important; color: white !important;" id="job-title">Thanks for applying!</h2>';
+        if(1==1){
+            document.getElementById('contactForm').reset();
+        }
+
+    } else {
+    let isResume = confirm("Do you want to proceed without uploading Resume?");
+            if(isResume == true){
+            
+        document.getElementById('thanks-message').innerHTML ='<br><h2 style="font-size: 2rem !important; color: white !important;" id="job-title">Thanks for applying!</h2>';
+        if(1==1){
+            document.getElementById('contactForm').reset();
+        }
+    }
+}
+}
+ 
+
+    function submitForm(e){
         e.preventDefault();
+
+
           // Get values
         var name = getInputVal('name');
         var email = getInputVal('email');
@@ -137,11 +169,16 @@
         var linkedin = getInputVal('linkedin');  
         var message = getInputVal('message');
     
+
+    
+
           // Save message
         saveMessage(name, email, linkedin, phone, message);
-        document.getElementById('contactForm').reset();
+        
         }
     
+
+
         // Function to get get form values
         function getInputVal(id){
           return document.getElementById(id).value;
@@ -169,10 +206,7 @@
         });
 
 
-        function thanks(){
-        document.getElementById('thanks-message').innerHTML =
-        '<br><h2 style="font-size: 2rem !important; color: white !important;" id="job-title">Thanks for applying!</h2>';
-        }
+
         </script>
     
     
