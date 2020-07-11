@@ -37,9 +37,10 @@
                             <option value="0">-- Select Job Title --</option>
                             <option value="1">Market Research Analyst</option>
                             <option value="2">Business Development Associate</option>
-                            <option value="3">UI/UX Designer</option>
-                            <option value="4">Frontend Developer</option>
-                            <option value="5">Backend Developer</option>
+                            <option value="3">Frontend Developer</option>
+                            <option value="4">Backend Developer</option>
+                            <option value="5">UI/UX Designer</option>
+                            <option value="6">Content Writer</option>
                         </select>
                         <!--<span class="focus-input2" data-placeholder="Select from the drop-down&nbsp;&nbsp;" style="text-align: right; margin-top: 0.5rem;"></span>-->
                         <!--<input class="input2" type="text" name="name" id = "name" style="width: inherit;background-color: white; border-radius: 0 6px 0 0;">-->
@@ -48,16 +49,16 @@
 
                             <div class="wrap-input2 validate-input" data-validate="Name is required" style="max-width: 500px; margin: 0 auto; margin-bottom: 2rem;">
                                 <input class="input2" type="text" name="name" id = "name" style="width: inherit;background-color: white; border-radius: 0 6px 0 0;">
-                                <span class="focus-input2" data-placeholder="&nbsp;&nbsp;NAME" style="text-align: left;"></span>
+                                <span class="focus-input2" name="span1" data-placeholder="&nbsp;&nbsp;NAME" style="text-align: left;"></span>
                             </div>
         
                             <div class="wrap-input2 validate-input" data-validate = "Valid email is required: ex@abc.xyz" style="max-width: 500px;  margin: 0 auto; margin-bottom: 2rem;">
                                 <input class="input2" type="text" name="email" id  = "email" style="width: inherit;background-color: white; border-radius: 0 6px 0 0;">
-                                <span class="focus-input2" data-placeholder="&nbsp;&nbsp;EMAIL" style="text-align: left;"></span>
+                                <span class="focus-input2" name="span2" data-placeholder="&nbsp;&nbsp;EMAIL" style="text-align: left;"></span>
                             </div>
         
                             <div class="wrap-input2 validate-input" data-validate = "Valid PHONE is required" style="max-width: 500px;  margin: 0 auto; margin-bottom: 2rem;">
-                                <input class="input2" type="number" name="phone" id  = "phone" style="width: inherit;background-color: white; border-radius: 0 6px 0 0;">
+                                <input class="input2" type="number" name="phone" id  = "phone" style="width: inherit;background-color: white; border-radius: 0 6px 0 0; padding-left: 2.5em;">
                                 <span class="focus-input2" data-placeholder="&nbsp;&nbsp;PHONE" style="text-align: left;"></span>
                             </div>
         
@@ -68,7 +69,7 @@
                             
 
                             <div class="wrap-input2 validate-input" data-validate = "Message is required" style="max-width: 500px; margin: 0 auto; margin-bottom: 2rem;">
-                                <textarea class="input2" name="message" id  = "message" style="width: inherit;background-color: white; border-radius: 0 6px 0 0px;"></textarea>
+                                <textarea class="input2" name="message" id  = "message" style="width: inherit;background-color: white; border-radius: 0 6px 0 0px; padding-top: 2em;"></textarea>
                                 <span class="focus-input2" data-placeholder="&nbsp;&nbsp;DESCRIPTION OF PAST PROJECTS/EXPERIENCES" style="text-align: left;"></span>
                             </div>
                             <div>
@@ -140,7 +141,11 @@
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
-    
+
+      function charcountupdate(str) {
+	    var lng = str.length;
+        
+}
 
 
 
