@@ -262,7 +262,7 @@ iframe {
   left: 0;
 
   font-family: Poppins-Regular;
-  font-size: 13px;
+  font-size: 11px;
   color: #999999;
   line-height: 1.2;
 
@@ -271,6 +271,7 @@ iframe {
   -moz-transition: all 0.4s;
   transition: all 0.4s;
 }
+
 
 /*---------------------------------------------*/
 input.input2 {
@@ -296,6 +297,7 @@ textarea.input2 + .focus-input2::after {
 .input2:focus + .focus-input2::after {
   top: -13px;
 }
+
 
 .input2:focus + .focus-input2::before {
   width: 100%;
